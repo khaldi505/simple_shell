@@ -18,6 +18,8 @@ if (command == NULL)
 strPrint("Memory error!\n");
 return (0);
 }
+while(1)
+{
 strPrint("AttoufShell$ "); /** Shell init **/
 chars = getline(&command, &size, stdin); /** Command handle **/
 if (chars == -1)
@@ -36,4 +38,5 @@ free(buffer);
 }
 }
 free(command);
+}
 }
