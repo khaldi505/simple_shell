@@ -7,7 +7,7 @@
 
 int main(void)
 {
-int error = 1, chars = 1, e = 1;
+int error = 1, chars = 1;
 pid_t pid;
 size_t size = 20;
 char *command, *buffer;
@@ -18,15 +18,11 @@ if (command == NULL)
 strPrint("Memory error!\n");
 return (0);
 }
-while (e != 0) /** Main loop **/
-{
 strPrint("AttoufShell$ "); /** Shell init **/
 chars = getline(&command, &size, stdin); /** Command handle **/
 if (chars == -1)
 return (0);
 command = strtok(command, "\n");
-//argv = strSplit(command, " ");
-//exec = getPath(argv[0]);
 pid = fork(); /** Initializing new process and executing program **/
 wait(NULL);
 if (pid == 0)
@@ -39,8 +35,5 @@ strPrint(buffer);
 free(buffer);
 }
 }
-//free(exec);
 free(command);
-//freeArr(argv);
-}
 }
