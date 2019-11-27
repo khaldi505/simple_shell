@@ -2,8 +2,8 @@
 
 /**
 * main - New version of shell!
-* argc: number of arguments.
-* argv: the arguments
+* @argc: number of arguments.
+* @argv: the arguments
 * Return: void.
 **/
 
