@@ -2,6 +2,8 @@
 
 /**
 * main - New version of shell!
+* argc: number of arguments.
+* argv: the arguments
 * Return: void.
 **/
 
@@ -11,7 +13,7 @@ pid_t pid;
 size_t size = 32;
 char *command, *buffer, *aux;
 char **arguments;
-while(1)
+while (1)
 {
 command = (char *) malloc(sizeof(char) * size);
 if (command == NULL)
