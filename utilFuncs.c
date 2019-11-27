@@ -1,42 +1,55 @@
 #include "shellHeader.h"
 
-/** strCat - Concatinates two strings with manual allocation.
-  * @str1: first string.
-  * @str2: second string.
-  * Return: pointer to the newly created string
-  **/
+/**
+* getPath - gets path of file.
+* @str: the file.
+* Return: pointer to file location.
+**/
 char *getPath(char *str)
 {
 struct stat st;
-extern char **environ;
-char **paths;
-char *token;
-char *path;
-char *aux;
-int i = 0;
+char *token, *path, *aux, **paths;
 int j = 0;
 
-while (environ[i]) {
-  token = strtok(environ[i], "=");
-  if (strCmp(token, "PATH") == 0) {
-    token = strtok(NULL, "\n");
-    break;
-  }
-  i++;
-}
-
+token = pathStr();
 paths = strSplit(token, ":");
-while (paths[j]) {
-  aux = strCat(paths[j], "/");
-  path = strCat(aux, str);
-  free(aux);
-  if (stat(path, &st) == 0) {
-    freeArr(paths);
-    return(path);
-  }
-  free(path);
-  j++;
+while (paths[j])
+{
+aux = strCat(paths[j], "/");
+path = strCat(aux, str);
+free(aux);
+if (stat(path, &st) == 0)
+{
+freeArr(paths);
+return (path);
+}
+free(path);
+j++;
 }
 freeArr(paths);
-return(NULL);
+return (NULL);
+}
+
+
+/**
+* pathStr - gets PATHS env variable.
+* Return: pointer to PATHS.
+**/
+char *pathStr()
+{
+char *token;
+int i = 0;
+
+while (environ[i])
+{
+token = strtok(environ[i], "=");
+if (strCmp(token, "PATH") == 0)
+{
+token = strtok(NULL, "\0");
+printf("%s\n", token);
+break;
+}
+i++;
+}
+return (token);
 }

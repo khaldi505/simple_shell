@@ -1,16 +1,17 @@
 #include "shellHeader.h"
 
-/** strCat - Concatinates two strings with manual allocation.
-  * @str1: first string.
-  * @str2: second string.
-  * Return: pointer to the newly created string
-  **/
+/**
+* freeArr - frees an array pointer.
+* @str: the array.
+* Return: void.
+**/
 void freeArr(char **str)
 {
 int i = 0;
-while (str[i]) {
-  free(str[i]);
-  i++;
+while (str[i])
+{
+free(str[i]);
+i++;
 }
 free(str);
 }
