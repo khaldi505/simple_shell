@@ -10,6 +10,7 @@ int main(__attribute__((unused)) int argc, char **argv)
 pid_t pid;
 size_t size = 32;
 char *command, *buffer, *aux;
+char **arguments;
 while(1)
 {
 command = (char *) malloc(sizeof(char) * size);
@@ -26,12 +27,17 @@ return (0);
 }
 command = strtok(command, "\n");
 aux = strCat(command, "");
+arguments = strSplit(command, " ");
+printf("%s\n", arguments[0]);
 free(command);
 pid = fork(); /** Initializing new process and executing program **/
-wait(NULL);
+if (wait(NULL) > 0)
+{
+free(aux);
+}
 if (pid == 0)
 {
-if ((execve(aux, argv, NULL)) < 0)
+if ((execve(arguments[0], arguments, NULL)) < 0)
 {
 buffer = strCat(argv[0], ": No such file or directory\n");
 strPrint(buffer);
@@ -39,5 +45,6 @@ free(buffer);
 }
 }
 free(aux);
+freeArr(arguments);
 }
 }
