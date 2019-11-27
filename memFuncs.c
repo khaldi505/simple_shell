@@ -8,6 +8,8 @@
 void freeArr(char **str)
 {
 int i = 0;
+if (!str)
+return;
 while (str[i])
 {
 free(str[i]);

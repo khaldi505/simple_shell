@@ -7,35 +7,37 @@
 
 int main(__attribute__((unused)) int argc, char **argv)
 {
-int error = 1, chars = 1;
 pid_t pid;
-size_t size = 20;
-char *command, *buffer;
+size_t size = 32;
+char *command, *buffer, *aux;
+while(1)
+{
 command = (char *) malloc(sizeof(char) * size);
 if (command == NULL)
 {
 strPrint("Memory error!\n");
 return (0);
 }
-while(1)
-{
 strPrint("#cisfun$ "); /** Shell init **/
-chars = getline(&command, &size, stdin); /** Command handle **/
-if (chars == -1)
+if ((getline(&command, &size, stdin)) == -1) /** Command handle **/
+{
+free(command);
 return (0);
+}
 command = strtok(command, "\n");
+aux = strCat(command, "");
+free(command);
 pid = fork(); /** Initializing new process and executing program **/
 wait(NULL);
 if (pid == 0)
 {
-error = execve(command, argv, NULL);
-if (error < 0)
+if ((execve(aux, argv, NULL)) < 0)
 {
 buffer = strCat(argv[0], ": No such file or directory\n");
 strPrint(buffer);
 free(buffer);
 }
 }
-free(command);
+free(aux);
 }
 }
