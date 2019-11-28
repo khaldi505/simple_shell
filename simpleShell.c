@@ -3,7 +3,8 @@
 /**
 * main - New version of shell!
 * @argc: number of arguments.
-* @argv: the arguments
+* @argv: the arguments.
+* @env: the environment.
 * Return: void.
 **/
 
