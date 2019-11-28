@@ -9,7 +9,7 @@ char *getPath(char *str)
 {
 struct stat st;
 char *token, *path, *aux, **paths;
-int j = 0;
+int j = 0, v = 0;
 
 token = pathStr();
 paths = strSplit(token, ":");
@@ -19,17 +19,16 @@ aux = strCat(paths[j], "/");
 path = strCat(aux, str);
 if (stat(path, &st) == 0)
 {
-free(aux);
-freeArr(paths);
-free(token);
-return (path);
+v = 1;
+break;
 }
 free(aux);
 free(path);
 j++;
 }
 free(token);
-freeArr(paths);
+if (v == 1)
+return (path);
 return (NULL);
 }
 
