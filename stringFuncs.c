@@ -10,8 +10,8 @@ char *strCat(const char *str1, const char *str2)
 {
 size_t s1, s2, s3, i = 0;
 char *a;
-s1 = strlen(str1);
-s2 = strlen(str2);
+s1 = strLen(str1);
+s2 = strLen(str2);
 s3 = s1 + s2 + 1;
 a = malloc(s3);
 if (a == NULL)
