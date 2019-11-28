@@ -100,7 +100,7 @@ argc++;
 }
 j++;
 }
-argc += 2;
+argc++;
 arg = malloc(sizeof(char *) * (argc + 1));
 if (arg == NULL)
 return (0);
@@ -112,7 +112,6 @@ arg[i] = strCat(token, "");
 token = strtok(NULL, delim);
 i++;
 }
-arg[i] = NULL;
 free(cmd);
 return (arg);
 }

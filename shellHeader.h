@@ -19,6 +19,7 @@ int _putchar(char c);
 
 char *getPath(char *str);
 char *pathStr();
+char **arrCopy(char **src);
 
 void freeArr(char **str);
 
