@@ -44,5 +44,5 @@ free(buffer);
 }
 free(aux);
 }
-exit(EXIT_FAILURE);
+exit(EXIT_SUCCESS);
 }
