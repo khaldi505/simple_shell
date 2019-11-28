@@ -30,6 +30,7 @@ free(command);
 exit(0);
 }
 argum = strSplit(command, " \n");
+free(command);
 pid = fork(); /** Initializing new process and executing program **/
 wait(NULL);
 if (pid == 0 && (argum[0] != NULL))
@@ -41,6 +42,8 @@ strPrint(buffer);
 free(buffer);
 }
 }
+freeArr(argum);
 }
+freeArr(argum);
 exit(1);
 }
