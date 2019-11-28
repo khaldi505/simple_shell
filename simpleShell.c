@@ -21,6 +21,7 @@ if (command == NULL)
 strPrint("Memory error!\n");
 exit(EXIT_FAILURE);
 }
+if (isatty(STDIN_FILENO) == 1)
 strPrint("#cisfun$ "); /** Shell init **/
 if ((getline(&command, &size, stdin)) == -1) /** Command handle **/
 {
