@@ -16,7 +16,7 @@ s3 = s1 + s2 + 1;
 a = malloc(s3);
 if (a == NULL)
 {
-strPrint("Memory error!")
+strPrint("Memory error!");
 exit(EXIT_FAILURE);
 }
 while (*str1 != '\0')
