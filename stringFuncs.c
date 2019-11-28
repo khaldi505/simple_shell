@@ -14,6 +14,11 @@ s1 = strlen(str1);
 s2 = strlen(str2);
 s3 = s1 + s2 + 1;
 a = malloc(s3);
+if (a == NULL)
+{
+strPrint("Memory error!")
+exit(EXIT_FAILURE);
+}
 while (*str1 != '\0')
 {
 a[i] = *str1;
@@ -72,7 +77,7 @@ return (len);
 **/
 char **strSplit(char *str, const char *delim)
 {
-char *token, *cmd, **argv;
+char *token, *cmd, **arg;
 int i = 0, j = 0, k = 0, v = 0, argc = 0;
 while (str[j])
 {
@@ -96,18 +101,18 @@ argc++;
 j++;
 }
 argc++;
-argv = malloc(sizeof(char *) * (argc + 1));
-if (argv == NULL)
+arg = malloc(sizeof(char *) * (argc + 1));
+if (arg == NULL)
 return (0);
 cmd = strCat(str, "");
 token = strtok(cmd, delim);
 while (token != NULL)
 {
-argv[i] = strCat(token, "");
+arg[i] = strCat(token, "");
 token = strtok(NULL, delim);
 i++;
 }
-argv[i] = NULL;
+arg[i] = NULL;
 free(cmd);
-return (argv);
+return (arg);
 }
