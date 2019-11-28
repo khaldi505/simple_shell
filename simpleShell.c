@@ -7,7 +7,7 @@
 * Return: void.
 **/
 
-int main(__attribute__((unused)) int argc, char **argv, char **env)
+int main(__attribute__((unused)) int argc, char **argv, __attribute__((unused)) char **env)
 {
 pid_t pid;
 size_t size = 32;
