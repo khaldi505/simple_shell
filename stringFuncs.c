@@ -100,7 +100,7 @@ argc++;
 }
 j++;
 }
-argc++;
+argc+= 2;
 arg = malloc(sizeof(char *) * (argc + 1));
 if (arg == NULL)
 return (0);
