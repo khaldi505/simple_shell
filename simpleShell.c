@@ -7,7 +7,7 @@
 * Return: void.
 **/
 
-int main(__attribute__((unused)) int argc, char **argv, __attribute__((unused)) char **env)
+int main(__attribute__((unused)) int argc, char **argv, char **env)
 {
 pid_t pid;
 size_t size = 32;
@@ -35,7 +35,7 @@ pid = fork(); /** Initializing new process and executing program **/
 wait(NULL);
 if (pid == 0)
 {
-if ((execve(aux, arguments, NULL)) < 0)
+if ((execve(aux, arguments, env)) < 0)
 {
 buffer = strCat(argv[0], ": No such file or directory\n");
 strPrint(buffer);
