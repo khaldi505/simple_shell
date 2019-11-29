@@ -1,24 +1,14 @@
 #include "shellHeader.h"
 
 int main(void) {
-  char **paths;
-  char *path = pathStr();
-  char *program;
-  char *ls = strCat("l","b");
-  int i = 0;
-  paths = strSplit(path, ":");
+  char *command;
+  size_t bus = 32;
+  int ss;
+  command = (char *)malloc(sizeof(char) * bus);
+  ss = getline(&command, &bus, stdin);
+  printf("%s\n", command);
+  if (isatty(STDIN_FILENO) == 1)
+  printf("lol\n");
 
-  while (paths[i]) {
-    printf("%s\n", paths[i]);
-    i++;
-  }
-  program = getPath(ls);
-
-  printf("size of paths = %lu\n", sizeof(paths));
-  printf("Program = %s\n", program);
-  free(ls);
-  free(program);
-  free(path);
-  freeArr(paths);
-  return 0;
+  printf("%s\n", command);
 }

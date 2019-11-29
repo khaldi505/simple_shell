@@ -1,0 +1,15 @@
+#!/bin/bash
+if [ $1 -eq 0 ]
+then
+i=1
+for i in {1..13}
+do
+printf "Check $i: "
+sudo ./test/checker.bash ./hsh ./test/sheck$i.bash
+echo
+done
+else
+printf "Check $1: "
+sudo ./test/checker.bash ./hsh ./test/sheck$1.bash
+echo
+fi
