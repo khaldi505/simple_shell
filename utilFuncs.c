@@ -97,6 +97,8 @@ return (dest);
 
 /**
 * checkBuiltin - gets PATHS env variable.
+* @program: the input.
+* @status: the exit status.
 * Return: pointer to PATHS.
 **/
 void checkBuiltin(char *program, int status)
