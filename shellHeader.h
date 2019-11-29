@@ -20,7 +20,7 @@ int _putchar(char c);
 char *getPath(char *str);
 char *pathStr();
 char **arrCopy(char **src);
-void checkBuiltin(char *program);
+void checkBuiltin(char *program, int status);
 
 void freeArr(char **str);
 

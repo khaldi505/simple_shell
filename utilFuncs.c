@@ -99,9 +99,9 @@ return(dest);
 * pathStr - gets PATHS env variable.
 * Return: pointer to PATHS.
 **/
-void checkBuiltin(char *program)
+void checkBuiltin(char *program, int status)
 {
 char xit[4] = "exit";
 if (strCmp(program, xit) == 0)
-exit(1);
+exit(status);
 }

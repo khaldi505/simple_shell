@@ -14,6 +14,7 @@ pid_t pid;
 size_t size = 32;
 char *command, *commanda, *buffer, *program;
 char **argum;
+int status = 0;
 
 while (1)
 {
@@ -33,7 +34,7 @@ exit(0);
 }
 
 argum = strSplit(command, " \n");
-checkBuiltin(argum[0]);
+checkBuiltin(argum[0], status);
 program = strCat(getPath(argum[0]), "");
 
 pid = fork(); /** Initializing new process and executing program **/
@@ -47,6 +48,7 @@ strPrint(buffer);
 free(buffer);
 }
 }
+status = 2;
 free(program);
 free(commanda);
 freeArr(argum);
