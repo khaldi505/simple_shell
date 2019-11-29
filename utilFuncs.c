@@ -92,11 +92,11 @@ dest[i] = strCat(src[i], "");
 i++;
 }
 dest[i] = NULL;
-return(dest);
+return (dest);
 }
 
 /**
-* pathStr - gets PATHS env variable.
+* checkBuiltin - gets PATHS env variable.
 * Return: pointer to PATHS.
 **/
 void checkBuiltin(char *program, int status)
