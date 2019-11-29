@@ -10,7 +10,6 @@ char *getPath(char *str)
 struct stat st;
 char *token, *path, *aux, **paths;
 int j = 0, v = 0;
-
 token = pathStr();
 paths = strSplit(token, ":");
 while (paths[j])
@@ -39,14 +38,15 @@ return (NULL);
 **/
 char *pathStr()
 {
-char *token, *result;
+char *token, *result, *copy;
 char **aux;
 int i = 0;
 
 aux = arrCopy(environ);
 while (aux[i])
 {
-token = strtok(aux[i], "=");
+copy = strCat(aux[i], "");
+token = strtok(copy, "=");
 if (strCmp(token, "PATH") == 0)
 {
 token = strtok(NULL, "\0");
@@ -55,7 +55,6 @@ break;
 i++;
 }
 result = strCat(token, "");
-freeArr(aux);
 return (result);
 }
 
