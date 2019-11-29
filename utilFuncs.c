@@ -68,7 +68,8 @@ return (result);
 }
 
 /**
-* pathStr - gets PATHS env variable.
+* arrCopy - copies an array of strings.
+* @src: source.
 * Return: pointer to PATHS.
 **/
 char **arrCopy(char **src)
