@@ -12,7 +12,7 @@ int main(__attribute__((unused)) int argc, char **argv, char **env)
 {
 pid_t pid;
 size_t size = 32;
-char *command, *buffer, *program;
+char *command, *commanda, *buffer, *program;
 char **argum;
 
 while (1)
@@ -23,6 +23,7 @@ if (command == NULL)
 strPrint("Memory error!\n");
 exit(0);
 }
+commanda = command;
 if (isatty(STDIN_FILENO) == 1)
 strPrint("#cisfun$ "); /** Shell init **/
 if ((getline(&command, &size, stdin)) == -1) /** Command handle **/
@@ -41,11 +42,11 @@ if ((execve(program, argum, env)) < 0)
 buffer = strCat(argv[0], ": No such file or directory\n");
 strPrint(buffer);
 free(buffer);
-freeArr(argum);
 }
 }
+free(program);
+free(commanda);
 freeArr(argum);
-free(command);
 }
 exit(1);
 }
