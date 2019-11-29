@@ -12,6 +12,8 @@ char *token, *path, *aux, **paths;
 int j = 0, v = 0;
 token = pathStr();
 paths = strSplit(token, ":");
+if (stat(str, &st) == 0)
+return (str);
 while (paths[j])
 {
 aux = strCat(paths[j], "/");
@@ -25,7 +27,6 @@ free(aux);
 free(path);
 j++;
 }
-free(token);
 if (v == 1)
 return (path);
 return (NULL);
