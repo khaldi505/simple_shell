@@ -68,7 +68,7 @@ return (result);
 }
 
 /**
-* pathStr - gets PATHS env variable.
+* arrCopy - gets PATHS env variable.
 * Return: pointer to PATHS.
 **/
 char **arrCopy(char **src)
@@ -92,5 +92,5 @@ dest[i] = strCat(src[i], "");
 i++;
 }
 dest[i] = NULL;
-return(dest);
+return (dest);
 }
