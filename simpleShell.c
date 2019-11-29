@@ -33,7 +33,9 @@ exit(0);
 }
 
 argum = strSplit(command, " \n");
+checkBuiltin(argum[0]);
 program = strCat(getPath(argum[0]), "");
+
 pid = fork(); /** Initializing new process and executing program **/
 wait(NULL);
 if (pid == 0 && (argum[0] != NULL))

@@ -94,3 +94,14 @@ i++;
 dest[i] = NULL;
 return(dest);
 }
+
+/**
+* pathStr - gets PATHS env variable.
+* Return: pointer to PATHS.
+**/
+void checkBuiltin(char *program)
+{
+char xit[4] = "exit";
+if (strCmp(program, xit) == 0)
+exit(1);
+}
